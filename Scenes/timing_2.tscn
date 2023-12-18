@@ -1,0 +1,169 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1og27aqfg3ch"]
+
+[ext_resource type="Script" path="res://Scenes/hand.gd" id="2_1gg3p"]
+[ext_resource type="Script" path="res://Scenes/wall.gd" id="2_01nfn"]
+[ext_resource type="Script" path="res://Scenes/effect.gd" id="2_si6ek"]
+[ext_resource type="Script" path="res://Scenes/info.gd" id="4_bvrnj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_srf4m"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qube"]
+size = Vector2(112, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyj1q"]
+size = Vector2(160, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxnfl"]
+size = Vector2(8, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_to1i8"]
+size = Vector2(16, 63.875)
+
+[node name="Timing2" type="Node2D"]
+position = Vector2(-7, -4)
+
+[node name="Red" type="Area2D" parent="."]
+script = ExtResource("2_si6ek")
+
+[node name="Light" type="ColorRect" parent="Red"]
+offset_left = 343.0
+offset_top = 68.0
+offset_right = 375.0
+offset_bottom = 132.0
+color = Color(1, 0, 0, 1)
+
+[node name="Dark" type="ColorRect" parent="Red"]
+offset_left = 343.0
+offset_top = 68.0
+offset_right = 375.0
+offset_bottom = 132.0
+color = Color(0.498039, 0, 0, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="Red"]
+position = Vector2(359, 100)
+shape = SubResource("RectangleShape2D_srf4m")
+
+[node name="LeftYellow" type="Area2D" parent="."]
+script = ExtResource("2_si6ek")
+
+[node name="Light" type="ColorRect" parent="LeftYellow"]
+offset_left = 231.0
+offset_top = 68.0
+offset_right = 343.0
+offset_bottom = 132.0
+color = Color(1, 1, 0, 1)
+
+[node name="Dark" type="ColorRect" parent="LeftYellow"]
+offset_left = 231.0
+offset_top = 68.0
+offset_right = 343.0
+offset_bottom = 132.0
+color = Color(0.964706, 0.745098, 0, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="LeftYellow"]
+position = Vector2(287, 100)
+shape = SubResource("RectangleShape2D_3qube")
+
+[node name="RightYellow" type="Area2D" parent="."]
+script = ExtResource("2_si6ek")
+
+[node name="Light" type="ColorRect" parent="RightYellow"]
+offset_left = 375.0
+offset_top = 68.0
+offset_right = 487.0
+offset_bottom = 132.0
+color = Color(1, 1, 0, 1)
+
+[node name="Dark" type="ColorRect" parent="RightYellow"]
+offset_left = 375.0
+offset_top = 68.0
+offset_right = 487.0
+offset_bottom = 132.0
+color = Color(0.964706, 0.745098, 0, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="RightYellow"]
+position = Vector2(431, 100)
+shape = SubResource("RectangleShape2D_3qube")
+
+[node name="LeftGreen" type="Area2D" parent="."]
+position = Vector2(355, 68)
+script = ExtResource("2_si6ek")
+
+[node name="Light" type="ColorRect" parent="LeftGreen"]
+offset_left = -284.0
+offset_right = -124.0
+offset_bottom = 64.0
+color = Color(0, 1, 0, 1)
+
+[node name="Dark" type="ColorRect" parent="LeftGreen"]
+offset_left = -284.0
+offset_right = -124.0
+offset_bottom = 64.0
+color = Color(0, 0.498039, 0, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="LeftGreen"]
+position = Vector2(-204, 32)
+shape = SubResource("RectangleShape2D_dyj1q")
+
+[node name="RightGreen" type="Area2D" parent="."]
+position = Vector2(355, 68)
+script = ExtResource("2_si6ek")
+
+[node name="Light" type="ColorRect" parent="RightGreen"]
+offset_left = 132.0
+offset_right = 292.0
+offset_bottom = 64.0
+color = Color(0, 1, 0, 1)
+
+[node name="Dark" type="ColorRect" parent="RightGreen"]
+offset_left = 132.0
+offset_right = 292.0
+offset_bottom = 64.0
+color = Color(0, 0.498039, 0, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="RightGreen"]
+position = Vector2(212, 32)
+shape = SubResource("RectangleShape2D_dyj1q")
+
+[node name="Hand" type="Area2D" parent="."]
+script = ExtResource("2_1gg3p")
+
+[node name="Color" type="ColorRect" parent="Hand"]
+offset_left = 355.0
+offset_top = 68.0
+offset_right = 363.0
+offset_bottom = 132.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Collision" type="CollisionShape2D" parent="Hand"]
+position = Vector2(359, 100)
+shape = SubResource("RectangleShape2D_yxnfl")
+
+[node name="LeftWall" type="Area2D" parent="."]
+position = Vector2(360, 100)
+script = ExtResource("2_01nfn")
+
+[node name="Collision" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-297, 0.125)
+shape = SubResource("RectangleShape2D_to1i8")
+
+[node name="RightWall" type="Area2D" parent="."]
+position = Vector2(360, 100)
+script = ExtResource("2_01nfn")
+
+[node name="Collision" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(295, -0.0625)
+shape = SubResource("RectangleShape2D_to1i8")
+
+[node name="Info" type="Label" parent="."]
+offset_left = 320.0
+offset_top = 330.0
+offset_right = 381.0
+offset_bottom = 365.0
+theme_override_font_sizes/font_size = 25
+text = "INFO"
+script = ExtResource("4_bvrnj")
+
+[connection signal="area_entered" from="LeftWall" to="LeftWall" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="RightWall" to="RightWall" method="_on_wall_area_entered"]
